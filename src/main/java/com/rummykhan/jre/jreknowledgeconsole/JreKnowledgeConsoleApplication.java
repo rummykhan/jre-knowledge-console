@@ -5,8 +5,9 @@ import com.rummykhan.jre.jreknowledgeconsole.cli.OptionParser;
 import com.rummykhan.jre.jreknowledgeconsole.data.JreKnowledgeObject;
 import com.rummykhan.jre.jreknowledgeconsole.file.FileReader;
 import com.rummykhan.jre.jreknowledgeconsole.html.HtmlParser;
-import com.rummykhan.jre.jreknowledgeconsole.models.Test;
+import com.rummykhan.jre.jreknowledgeconsole.models.JreEpisode;
 import com.rummykhan.jre.jreknowledgeconsole.properties.PropertiesManagerImpl;
+import com.rummykhan.jre.jreknowledgeconsole.repositories.JreEpisodeRepository;
 import com.rummykhan.jre.jreknowledgeconsole.repositories.TestRepository;
 import com.rummykhan.jre.jreknowledgeconsole.router.Router;
 import lombok.extern.slf4j.Slf4j;
@@ -15,12 +16,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 
 import java.io.IOException;
 import java.util.List;
 
 @Slf4j
 @SpringBootApplication
+@EnableMongoAuditing
 public class JreKnowledgeConsoleApplication implements CommandLineRunner {
 
     @Autowired
@@ -40,6 +43,9 @@ public class JreKnowledgeConsoleApplication implements CommandLineRunner {
 
     @Autowired
     public FileReader fileReader;
+
+    @Autowired
+    private JreEpisodeRepository jreEpisodeRepository;
 
     @Autowired
     private TestRepository testRepository;
@@ -67,8 +73,19 @@ public class JreKnowledgeConsoleApplication implements CommandLineRunner {
 
         log.info("Got episodes : {}", objects.size());
 
-        for (Test test : this.testRepository.findAll()) {
-            log.info("Test: {}", test);
+        //this.testRepository.save(new Test("something here", false));
+
+        for (JreKnowledgeObject object : objects) {
+
+            JreEpisode jreEpisode = this.jreEpisodeRepository.findByTitle(object.getTitle());
+
+            if (null != jreEpisode) {
+                continue;
+            }
+
+            JreEpisode insertedObject = this.jreEpisodeRepository.save(new JreEpisode(object));
+
+            log.info("Object inserted at: {}", insertedObject.getId());
         }
 
     }
