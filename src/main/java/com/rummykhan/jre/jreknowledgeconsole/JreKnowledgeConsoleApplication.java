@@ -1,17 +1,12 @@
 package com.rummykhan.jre.jreknowledgeconsole;
 
-import com.rummykhan.jre.jreknowledgeconsole.cli.OptionManager;
-import com.rummykhan.jre.jreknowledgeconsole.cli.OptionParser;
 import com.rummykhan.jre.jreknowledgeconsole.data.JreKnowledgeObject;
 import com.rummykhan.jre.jreknowledgeconsole.file.FileReader;
 import com.rummykhan.jre.jreknowledgeconsole.html.HtmlParser;
 import com.rummykhan.jre.jreknowledgeconsole.models.JreEpisode;
 import com.rummykhan.jre.jreknowledgeconsole.properties.PropertiesManagerImpl;
 import com.rummykhan.jre.jreknowledgeconsole.repositories.JreEpisodeRepository;
-import com.rummykhan.jre.jreknowledgeconsole.repositories.TestRepository;
-import com.rummykhan.jre.jreknowledgeconsole.router.Router;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.cli.CommandLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,14 +21,18 @@ import java.util.List;
 @EnableMongoAuditing
 public class JreKnowledgeConsoleApplication implements CommandLineRunner {
 
-    @Autowired
-    public OptionManager optionManager;
-
-    @Autowired
-    public OptionParser optionParser;
-
-    @Autowired
-    public Router router;
+    /*
+     * Commented for the same reason commenting this line as of getCommandLine
+     *
+     * @Autowired
+     * public OptionManager optionManager;
+     *
+     * @Autowired
+     * public OptionParser optionParser;
+     *
+     * @Autowired
+     * public Router router;
+     */
 
     @Autowired
     public HtmlParser htmlParser;
@@ -47,21 +46,25 @@ public class JreKnowledgeConsoleApplication implements CommandLineRunner {
     @Autowired
     private JreEpisodeRepository jreEpisodeRepository;
 
-    @Autowired
-    private TestRepository testRepository;
-
     public static void main(String[] args) {
 
         log.info("JreKnowledgeConsoleApplication -> main()");
         SpringApplication.run(JreKnowledgeConsoleApplication.class, args);
     }
 
-    public CommandLine getCommandLine(String[] args) {
-        return this.optionParser.parse(this.optionManager.getCliOptions(), args);
-    }
+    /**
+     * Changed my mind about using console arguments that's why commented
+     * Keeping it commented as I may have to take help from here.
+     * <p>
+     * public CommandLine getCommandLine(String[] args) {
+     * return this.optionParser.parse(this.optionManager.getCliOptions(), args);
+     * }
+     */
 
     @Override
     public void run(String[] args) throws IOException {
+
+        // Commented for the same reason commenting this line as of getCommandLine
         // this.router.route(this.getCommandLine(args));
 
         log.info("Application -> run()");
@@ -72,8 +75,6 @@ public class JreKnowledgeConsoleApplication implements CommandLineRunner {
         List<JreKnowledgeObject> objects = this.htmlParser.parse(fileContents);
 
         log.info("Got episodes : {}", objects.size());
-
-        //this.testRepository.save(new Test("something here", false));
 
         for (JreKnowledgeObject object : objects) {
 
