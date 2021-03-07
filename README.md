@@ -1,6 +1,6 @@
 # Unofficial Joe Rogan knowledge console
 
-#### Note:  Episodes updated as of March 2 2021
+#### Note:  Episodes updated as of March 2, 2021
 
 ### Description
 I loved jre podcasts full of knowledge, but these podcasts are so many and I don't know which podcast I should watch.
