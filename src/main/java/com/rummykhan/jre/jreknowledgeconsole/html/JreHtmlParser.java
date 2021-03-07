@@ -43,11 +43,11 @@ public class JreHtmlParser implements HtmlParser {
         return this.parseChildren(element);
     }
 
-    public Document parseHtmlToDocument(String html) {
+    private Document parseHtmlToDocument(String html) {
         return Jsoup.parse(html);
     }
 
-    public List<JreKnowledgeObject> parseChildren(Element element) {
+    private List<JreKnowledgeObject> parseChildren(Element element) {
 
         List<JreKnowledgeObject> objects = new ArrayList<>();
 
@@ -61,17 +61,13 @@ public class JreHtmlParser implements HtmlParser {
                 continue;
             }
 
-            if (object == null) {
-                continue;
-            }
-
             objects.add(object);
         }
 
         return objects;
     }
 
-    public JreKnowledgeObject parseChild(Element childElement) {
+    private JreKnowledgeObject parseChild(Element childElement) {
 
         JreKnowledgeObject jreKnowledgeObject = new JreKnowledgeObject();
 

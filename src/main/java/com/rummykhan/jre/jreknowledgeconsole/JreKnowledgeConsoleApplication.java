@@ -84,7 +84,7 @@ public class JreKnowledgeConsoleApplication implements CommandLineRunner {
                 continue;
             }
 
-            JreEpisode insertedObject = this.jreEpisodeRepository.save(new JreEpisode(object));
+            JreEpisode insertedObject = this.jreEpisodeRepository.save(JreKnowledgeObject.toJreEpisode(object));
 
             log.info("Object inserted at: {}", insertedObject.getId());
         }

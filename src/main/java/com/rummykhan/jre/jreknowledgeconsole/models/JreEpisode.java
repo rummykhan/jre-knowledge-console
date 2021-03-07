@@ -32,11 +32,4 @@ public class JreEpisode {
     @LastModifiedDate
     private LocalDateTime updated_at;
 
-    public JreEpisode(JreKnowledgeObject knowledgeObject) {
-        this.title = knowledgeObject.getTitle();
-        this.description = knowledgeObject.getDescription();
-        this.image = knowledgeObject.getImage();
-        this.date = knowledgeObject.getDate();
-        this.duration = knowledgeObject.getDuration();
-    }
 }
