@@ -4,10 +4,14 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.annotation.Order;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.io.IOException;
 
 @SpringBootTest
+@ActiveProfiles("test")
+@Order(5)
 class FileReaderImplTest {
 
     private static final String file_that_exist = "storage/joe-rogan-spotify.html";

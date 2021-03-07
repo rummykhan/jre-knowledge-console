@@ -2,9 +2,12 @@ package com.rummykhan.jre.jreknowledgeconsole.html;
 
 import com.rummykhan.jre.jreknowledgeconsole.data.JreKnowledgeObject;
 import com.rummykhan.jre.jreknowledgeconsole.html.parsers.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.annotation.Order;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
@@ -12,6 +15,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @SpringBootTest
+@ActiveProfiles("test")
+@Order(4)
 class JreHtmlParserTest {
     @Autowired
     private ImageParser imageParser;
@@ -97,45 +102,45 @@ class JreHtmlParserTest {
 
     @Test
     public void testImageParserIsNotNull() {
-        assertThat(this.imageParser).isNotNull();
+        Assertions.assertNotNull(this.imageParser);
     }
 
     @Test
     public void testTitleParserIsNotNull() {
-        assertThat(this.titleParser).isNotNull();
+        Assertions.assertNotNull(this.titleParser);
     }
 
     @Test
     public void testEpisodeParserIsNotNull() {
-        assertThat(this.episodeParser).isNotNull();
+        Assertions.assertNotNull(this.episodeParser);
     }
 
     @Test
     public void testDescriptionParserIsNotNull() {
-        assertThat(this.descriptionParser).isNotNull();
+        Assertions.assertNotNull(this.descriptionParser);
     }
 
     @Test
     public void testDateParserIsNotNull() {
-        assertThat(this.dateParser).isNotNull();
+        Assertions.assertNotNull(this.dateParser);
     }
 
     @Test
     public void testDurationParserIsNotNull() {
-        assertThat(this.durationParser).isNotNull();
+        Assertions.assertNotNull(this.durationParser);
     }
 
     @Test
     public void testJreHtmlParserIsNotNull() {
-        assertThat(this.jreHtmlParser).isNotNull();
+        Assertions.assertNotNull(this.jreHtmlParser);
     }
 
     @Test
     public void testParseStringReturnsJreKnowledgeObjectWhenStringIsValid() {
         List<JreKnowledgeObject> objectList = this.jreHtmlParser.parse(jreHtmlValidString);
 
-        assertThat(objectList).isNotNull();
-        assertThat(objectList.size()).isGreaterThan(0);
+        Assertions.assertNotNull(objectList);
+        Assertions.assertEquals(objectList.size(), 1);
         assertThat(objectList.get(0)).isInstanceOf(JreKnowledgeObject.class);
     }
 }

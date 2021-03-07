@@ -4,14 +4,18 @@ import com.rummykhan.jre.jreknowledgeconsole.file.FileReader;
 import com.rummykhan.jre.jreknowledgeconsole.html.HtmlParser;
 import com.rummykhan.jre.jreknowledgeconsole.properties.PropertiesManagerImpl;
 import com.rummykhan.jre.jreknowledgeconsole.repositories.JreEpisodeRepository;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.springframework.core.annotation.Order;
+import org.springframework.test.context.ActiveProfiles;
 
 
 @SpringBootTest
+@ActiveProfiles("test")
+@Order(1)
 class JreKnowledgeConsoleApplicationTests {
 
     @Autowired
@@ -26,29 +30,28 @@ class JreKnowledgeConsoleApplicationTests {
     @Autowired
     private JreEpisodeRepository jreEpisodeRepository;
 
+    @BeforeAll
+    public static void setUpClass() {
+        System.out.println("I;ll be executed only once for all test cases");
+    }
 
     @Test
     void testHtmlParserIsNotNull() {
-        assertThat(this.htmlParser).isNotNull();
+        Assertions.assertNotNull(this.htmlParser);
     }
 
     @Test
     void testPropertyManagerIsNotNull() {
-        assertThat(this.propertiesManager).isNotNull();
+        Assertions.assertNotNull(this.propertiesManager);
     }
 
     @Test
     void testFileReaderIsNotNull() {
-        assertThat(this.fileReader).isNotNull();
+        Assertions.assertNotNull(this.fileReader);
     }
 
     @Test
     void testJreEpisodeRepositoryIsNotNull() {
-        assertThat(this.jreEpisodeRepository).isNotNull();
-    }
-
-    @Test
-    void testAssertStringNotNull() {
-        assertThat("this is a string").isNotNull();
+        Assertions.assertNotNull(this.jreEpisodeRepository);
     }
 }
