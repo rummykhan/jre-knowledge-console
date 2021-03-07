@@ -1,17 +1,12 @@
 package com.rummykhan.jre.jreknowledgeconsole.properties;
 
+import com.rummykhan.jre.jreknowledgeconsole.JreKnowledgeConsoleTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.annotation.Order;
-import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest
-@ActiveProfiles("test")
-@Order(3)
-class PropertiesManagerImplTest {
+class PropertiesManagerImplTest extends JreKnowledgeConsoleTest {
 
     @Autowired
     private PropertiesManagerImpl propertiesManager;

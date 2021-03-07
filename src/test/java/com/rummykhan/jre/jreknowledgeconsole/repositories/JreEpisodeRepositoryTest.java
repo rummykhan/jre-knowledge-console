@@ -1,17 +1,12 @@
 package com.rummykhan.jre.jreknowledgeconsole.repositories;
 
-import com.rummykhan.jre.jreknowledgeconsole.models.JreEpisode;
+import com.rummykhan.jre.jreknowledgeconsole.JreKnowledgeConsoleTest;
+import com.rummykhan.jre.jreknowledgeconsole.entities.JreEpisode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.annotation.Order;
-import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest
-@ActiveProfiles("test")
-@Order(2)
-class JreEpisodeRepositoryTest {
+class JreEpisodeRepositoryTest extends JreKnowledgeConsoleTest {
 
     @Autowired
     private JreEpisodeRepository jreEpisodeRepository;

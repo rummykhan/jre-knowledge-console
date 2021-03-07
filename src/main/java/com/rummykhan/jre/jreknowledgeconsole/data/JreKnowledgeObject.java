@@ -1,6 +1,6 @@
 package com.rummykhan.jre.jreknowledgeconsole.data;
 
-import com.rummykhan.jre.jreknowledgeconsole.models.JreEpisode;
+import com.rummykhan.jre.jreknowledgeconsole.entities.JreEpisode;
 import lombok.Data;
 
 @Data

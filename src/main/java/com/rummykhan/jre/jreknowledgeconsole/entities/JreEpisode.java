@@ -1,4 +1,4 @@
-package com.rummykhan.jre.jreknowledgeconsole.models;
+package com.rummykhan.jre.jreknowledgeconsole.entities;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
@@ -8,25 +8,27 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
+@Document(collection = "jre_episodes")
 @Data
-@Document(collection = "test")
-public class Test {
+public class JreEpisode {
 
     @Id
     private String id;
 
-    private Boolean test;
+    private String title;
 
-    private String name;
+    private String description;
+
+    private String image;
+
+    private String date;
+
+    private String duration;
 
     @CreatedDate
-    public LocalDateTime created_at;
+    private LocalDateTime created_at;
 
     @LastModifiedDate
-    public LocalDateTime updated_at;
+    private LocalDateTime updated_at;
 
-    public Test(String name, Boolean test){
-        this.name = name;
-        this.test = test;
-    }
 }

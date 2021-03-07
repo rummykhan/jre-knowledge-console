@@ -3,7 +3,7 @@ package com.rummykhan.jre.jreknowledgeconsole;
 import com.rummykhan.jre.jreknowledgeconsole.data.JreKnowledgeObject;
 import com.rummykhan.jre.jreknowledgeconsole.file.FileReader;
 import com.rummykhan.jre.jreknowledgeconsole.html.HtmlParser;
-import com.rummykhan.jre.jreknowledgeconsole.models.JreEpisode;
+import com.rummykhan.jre.jreknowledgeconsole.entities.JreEpisode;
 import com.rummykhan.jre.jreknowledgeconsole.properties.PropertiesManagerImpl;
 import com.rummykhan.jre.jreknowledgeconsole.repositories.JreEpisodeRepository;
 import lombok.extern.slf4j.Slf4j;

@@ -1,23 +1,17 @@
 package com.rummykhan.jre.jreknowledgeconsole.html;
 
+import com.rummykhan.jre.jreknowledgeconsole.JreKnowledgeConsoleTest;
 import com.rummykhan.jre.jreknowledgeconsole.data.JreKnowledgeObject;
 import com.rummykhan.jre.jreknowledgeconsole.html.parsers.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.annotation.Order;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
-@SpringBootTest
-@ActiveProfiles("test")
-@Order(4)
-class JreHtmlParserTest {
+class JreHtmlParserTest extends JreKnowledgeConsoleTest {
     @Autowired
     private ImageParser imageParser;
 

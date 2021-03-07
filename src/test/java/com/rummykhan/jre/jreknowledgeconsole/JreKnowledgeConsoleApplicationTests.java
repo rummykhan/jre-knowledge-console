@@ -8,15 +8,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.annotation.Order;
-import org.springframework.test.context.ActiveProfiles;
 
-
-@SpringBootTest
-@ActiveProfiles("test")
-@Order(1)
-class JreKnowledgeConsoleApplicationTests {
+class JreKnowledgeConsoleApplicationTests extends JreKnowledgeConsoleTest {
 
     @Autowired
     public HtmlParser htmlParser;

@@ -1,6 +1,6 @@
 package com.rummykhan.jre.jreknowledgeconsole.repositories;
 
-import com.rummykhan.jre.jreknowledgeconsole.models.JreEpisode;
+import com.rummykhan.jre.jreknowledgeconsole.entities.JreEpisode;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

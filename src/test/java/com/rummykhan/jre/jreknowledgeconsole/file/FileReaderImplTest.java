@@ -1,18 +1,13 @@
 package com.rummykhan.jre.jreknowledgeconsole.file;
 
+import com.rummykhan.jre.jreknowledgeconsole.JreKnowledgeConsoleTest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.annotation.Order;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.io.IOException;
 
-@SpringBootTest
-@ActiveProfiles("test")
-@Order(5)
-class FileReaderImplTest {
+class FileReaderImplTest extends JreKnowledgeConsoleTest {
 
     private static final String file_that_exist = "storage/joe-rogan-spotify.html";
     private static final String file_that_donot_exist = "storage/joe-rogan-spotify-donot-exist.html";
