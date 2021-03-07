@@ -2,6 +2,7 @@ package com.rummykhan.jre.jreknowledgeconsole.html;
 
 import com.rummykhan.jre.jreknowledgeconsole.JreKnowledgeConsoleTest;
 import com.rummykhan.jre.jreknowledgeconsole.data.JreKnowledgeObject;
+import com.rummykhan.jre.jreknowledgeconsole.entities.JreEpisode;
 import com.rummykhan.jre.jreknowledgeconsole.html.parsers.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -136,5 +137,17 @@ class JreHtmlParserTest extends JreKnowledgeConsoleTest {
         Assertions.assertNotNull(objectList);
         Assertions.assertEquals(objectList.size(), 1);
         assertThat(objectList.get(0)).isInstanceOf(JreKnowledgeObject.class);
+    }
+
+    @Test
+    public void testJreKnowledgeObjectCanBeConvertedJreEpisode() {
+        List<JreKnowledgeObject> objectList = this.jreHtmlParser.parse(jreHtmlValidString);
+
+        Assertions.assertNotNull(objectList);
+        Assertions.assertEquals(objectList.size(), 1);
+        for(JreKnowledgeObject knowledgeObject: objectList){
+            assertThat(knowledgeObject).isInstanceOf(JreKnowledgeObject.class);
+            assertThat(JreKnowledgeObject.toJreEpisode(knowledgeObject)).isInstanceOf(JreEpisode.class);
+        }
     }
 }
